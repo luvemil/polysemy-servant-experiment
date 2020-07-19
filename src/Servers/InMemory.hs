@@ -1,3 +1,5 @@
+-- | Defines the Servant Server using an in memory implementation of the Storage
+
 {-# LANGUAGE DeriveGeneric, TemplateHaskell, OverloadedStrings, RecordWildCards #-}
 
 module Servers.InMemory where

@@ -1,3 +1,5 @@
+-- | Defines the Servant Server using the dummy implementation of the Storage
+
 {-# LANGUAGE DeriveGeneric, TemplateHaskell, OverloadedStrings, RecordWildCards #-}
 
 module Servers.Pure where
