@@ -8,6 +8,7 @@ import Servant.API (Get, Capture, ReqBody, PutCreated, NoContent(..), JSON, (:>)
 import Data.Proxy
 import Data.Functor
 
+import Effects.Storage
 
 -- | Define the API
 type PostAPI =

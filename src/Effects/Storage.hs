@@ -57,11 +57,3 @@ runStorageToState = interpret $ \case
     GetAllPosts       -> gets Prelude.id
     GetPost uuid      -> gets (\m -> M.lookup uuid m)
     PutPost uuid post -> modify (\m -> M.insert uuid post m) $> ()
-
--- | Define the API
-type PostAPI =
-         "post" :> Get '[JSON] (M.Map Text Post)
-    :<|> "post" :> Capture "postId" Text :> Get '[JSON] (Maybe Post)
-    :<|> "post" :> Capture "postId" Text
-                :> ReqBody '[JSON] Post
-                :> PutCreated '[JSON] NoContent

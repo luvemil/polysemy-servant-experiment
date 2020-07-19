@@ -11,6 +11,8 @@ import Servers.Pure (app)
 import Servers.InMemory (runApp)
 import Effects.Storage
 
+import qualified Data.Map as M
+
 pureMain :: IO ()
 pureMain = Warp.run 9000 app
 

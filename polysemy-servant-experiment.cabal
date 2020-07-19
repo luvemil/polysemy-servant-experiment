@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 83bb8b22f2b585b53b3bfd14adf1f0c46aa701fd80f67a9cc43a5d9336918987
+-- hash: b5c6c4d92233a68ece8bd8f91b38eedcfbc6ac2fcc63f35adff9670cb8185f75
 
 name:           polysemy-servant-experiment
 version:        0.1.0.0
@@ -29,6 +29,9 @@ library
   exposed-modules:
       Effects.Storage
       Lib
+      Servers.API
+      Servers.InMemory
+      Servers.Pure
   other-modules:
       Paths_polysemy_servant_experiment
   hs-source-dirs:
