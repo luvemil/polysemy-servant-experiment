@@ -8,9 +8,14 @@ In `Effects/Storage.hs` there is a definition of a basic storage with a single r
 
 In `Lib.hs` there are two main functions that use the implementations above respectively.
 
-In order to run with a different implementation edit `app/Main.hs` to call the desired function.
+In order to select which implementation to use, call with
+
+```
+stack run -- --mode MODE
+```
+
+where `MODE` can be one of `pure`, `io`, `reader` (defaults to `pure`).
 
 # TODO
 
 - remove unnecessary imports/pragmas
-- run a different implementation based on options passed from the command line
