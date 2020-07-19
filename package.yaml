@@ -1,0 +1,71 @@
+name:                polysemy-servant-experiment
+version:             0.1.0.0
+github:              "githubuser/polysemy-servant-experiment"
+license:             BSD3
+author:              "Author name here"
+maintainer:          "example@example.com"
+copyright:           "2020 Author name here"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/githubuser/polysemy-servant-experiment#readme>
+ghc-options: -O2 -flate-specialise -fspecialise-aggressively
+default-extensions:
+  - DataKinds
+  - FlexibleContexts
+  - GADTs
+  - LambdaCase
+  - PolyKinds
+  - RankNTypes
+  - ScopedTypeVariables
+  - TypeApplications
+  - TypeOperators
+  - TypeFamilies
+
+dependencies:
+- base >= 4.7 && < 5
+- aeson
+- bytestring
+- containers
+- optparse-generic
+- mtl
+- text
+- servant
+- servant-server
+- warp
+- polysemy
+- transformers
+
+library:
+  source-dirs: src
+
+executables:
+  polysemy-servant-experiment-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - polysemy-servant-experiment
+
+tests:
+  polysemy-servant-experiment-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - polysemy-servant-experiment
