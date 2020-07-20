@@ -31,23 +31,16 @@ makeServer ioRef =
     :<|> fetchHandler
     :<|> insertHandler
     where
-        fetchAllHandler =
+        runner :: Sem '[Storage, State InMemStorage, Embed IO] a -> Handler a
+        runner = 
               liftIO
             . runM
             . runStateIORef ioRef
             . runStorageToState
-            $ getAllPosts
-        fetchHandler =
-              liftIO
-            . runM
-            . runStateIORef ioRef
-            . runStorageToState
-            . getPost
-        insertHandler uuid post =
-              liftIO
-            . runM
-            . runStateIORef ioRef
-            . runStorageToState
+        fetchAllHandler = runner getAllPosts
+        fetchHandler = runner . getPost
+        insertHandler uuid post = 
+              runner
             $ (putPost uuid post)
             $> NoContent
 
